@@ -9,15 +9,15 @@ public class QuickSort {
     private QuickSort(){}
 
     private static int partition(Comparable[] arr,int l,int r){
-       Comparable v=arr[l];
-       int j=l;
+       Comparable v=arr[l];// 哨兵元素
+       int j=l; //j初始为l，表示比哨兵小的元素个数为0
         for (int i = l+1; i <= r; i++) {
             if (arr[i].compareTo(v)<0){
-                j++;
-                swap(arr,j,i);
+                j++; //找到比哨兵小的所有元素的最后的一个位置。
+                swap(arr,j,i);  //交换，将比哨兵大的元素放到后面来
             }
         }
-        swap(arr,l,j);
+        swap(arr,l,j); //将哨兵和比它小的最后一个元素交换位置。
         return j;
     }
 
