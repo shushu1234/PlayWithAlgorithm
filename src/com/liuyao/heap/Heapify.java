@@ -3,15 +3,26 @@ package com.liuyao.heap;
 /**
  * Created By liuyao on 2018/4/18 20:38.
  */
-public class MaxHeap<Item extends Comparable> {
+public class Heapify<Item extends Comparable> {
     public Item[] data;
     public int count; //数组中的元素个数
     public int capacity;
 
-    public MaxHeap(int capacity) {
-        data = (Item[]) new Comparable[capacity + 1]; //索引是从1开始的
-        count = 0;
-        this.capacity = capacity;
+    public Heapify(Item arr[]){
+        int n=arr.length;
+        data= (Item[]) new Comparable[n+1];
+        capacity=n;
+
+//        现将arr中的元素复制到data中
+        for (int i = 0; i < n; i++) {
+            data[i+1]=arr[i];
+        }
+        count=n;
+
+//        从第一个非叶子节点开始Shift Down操作
+        for (int i = count/2; i >= 1 ; i--) {
+            shiftDown(i);
+        }
     }
 
     public int size() {
@@ -77,19 +88,4 @@ public class MaxHeap<Item extends Comparable> {
         }
     }
 
-    public static void main(String[] args) {
-        MaxHeap<Integer> maxHeap = new MaxHeap<>(100);
-        int N = 15;
-        int M = 100;
-        for (int i = 0; i < N; i++) {
-            maxHeap.insert(new Integer((int) (Math.random() * M)));
-        }
-
-        Integer[] arr = new Integer[N];
-
-        for (int i = 0; i < N; i++) {
-            arr[i] = maxHeap.extractMax();
-            System.out.print(arr[i] + " ");
-        }
-    }
 }
