@@ -1,9 +1,6 @@
 package com.liuyao.graph2.lazyprim;
 
-import com.liuyao.graph2.Edge;
-import com.liuyao.graph2.ReadWeightedGraph;
-import com.liuyao.graph2.SparseWeightedGraph;
-import com.liuyao.graph2.WeightedGraph;
+import com.liuyao.graph2.*;
 
 import java.util.Vector;
 

@@ -1,4 +1,4 @@
-package com.liuyao.graph2.lazyprim;
+package com.liuyao.graph2;
 
 /**
  * Created By liuyao on 2018/5/1 18:24.
@@ -93,7 +93,7 @@ public class IndexMinHeap<Item extends Comparable> {
     }
 
     // 看索引i所在的位置是否存在元素
-    boolean contain(int i) {
+    public boolean contain(int i) {
         assert i + 1 >= 1 && i + 1 <= capacity;
         return reverse[i + 1] != 0;
     }
